@@ -1,14 +1,9 @@
 ## Expected
 
-1. the `Go Back` button on the homepage works (it should use `router.back()` to navigate to the previous page)
-2. The paginator should use shallow routing to change the URL when changing pages with the buttons
+1. `<Link href="/">` changes the route back to `/`
+2. Components do not rerender infinitely
 
 ## Actual
 
-1. The `onClick` with the router.back() call is missing.
-2. Shallow routing does not seem to work.
-
-
-### Extra Background
-
-We have a nextjs package that exports some components. Some components use the `next/router`. We had no issues until recently. To fix these issues (NextRouter is not mounted, `useState` is not defined, etc) we switched to the `next/compat/router` for these components which seems to resolve the build/runtime errors, but it results in the above issues where the router does not seem to behave as expected.
+1. The `<Link>` component  on the `/paginator` route does not change the URL
+2. Using the browser inspect elements or react dev tools, the component rendered by the Paginator is infinitely rerendering and the paginator does not work as a result. This works as expected on `13.4.3`
