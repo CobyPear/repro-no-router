@@ -19,7 +19,7 @@ export default function PaginatorPage() {
       <Paginator
         data={[{ title: "hi" }, { title: "hello" }, { title: "oy" }]}
         itemsPerPage={1}
-        routing={false}
+        routing={true}
         breakpoints={{ start: 0, end: 3, add: 0 }}
         Component={({ currentItems }) =>
           currentItems.map(({ title }: { title: string }) => (
